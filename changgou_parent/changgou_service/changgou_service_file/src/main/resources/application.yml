@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: changgou-file
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 10MB
+server:
+  port: 18082
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.client.eureka-server-port}/eureka
+    eureka-server-port: 6868
+feign:
+  hystrix:
+    enabled: true
+

@@ -14,6 +14,7 @@
 
     <modules>
         <module>changgou_service_goods</module>
+        <module>changgou_service_file</module>
     </modules>
 
     <description>Service复工程</description>
