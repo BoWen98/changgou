@@ -1,9 +1,10 @@
 package com.bowen.service.goods;
 
-import org.mybatis.spring.annotation.MapperScan;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * @ProjectName: changgou
@@ -14,7 +15,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @Date: 2019/12/1 0:44
  * @Version: 1.0.0
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.bowen.*")
 @EnableEurekaClient
 @MapperScan("com.bowen.service.goods.dao")
 public class GoodsApplication {
