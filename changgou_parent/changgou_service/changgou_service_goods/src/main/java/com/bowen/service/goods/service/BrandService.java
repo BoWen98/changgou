@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface BrandService {
 
+    public List<Brand> findByCategory(Integer categoryid);
+
     public List<Brand> findAll();
 
     public List<Brand> findList(Brand brand);

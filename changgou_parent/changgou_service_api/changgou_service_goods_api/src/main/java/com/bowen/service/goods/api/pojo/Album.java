@@ -18,7 +18,9 @@ public class Album implements Serializable {
 
 	
 	private String title;//相册名称
+
 	private String image;//相册封面
+
 	private String imageItems;//图片列表
 
 	

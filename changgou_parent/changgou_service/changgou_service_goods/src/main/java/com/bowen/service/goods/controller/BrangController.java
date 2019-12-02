@@ -26,6 +26,11 @@ public class BrangController {
     @Autowired
     private BrandService brandService;
 
+    @GetMapping("/category/{id}")
+    public Result<List<Brand>> findByCategory(@PathVariable("id") Integer categoryid) {
+        return new Result<>(true, StatusCode.OK, "查询成功", brandService.findByCategory(categoryid));
+    }
+
     @GetMapping
     public Result<List<Brand>> findAll() {
         return new Result<>(true, StatusCode.OK, "查询成功", brandService.findAll());
@@ -38,6 +43,7 @@ public class BrangController {
 
     @PostMapping
     public Result<Brand> saveBrad(@RequestBody Brand brand) {
+        brandService.saveBrand(brand);
         return new Result<>(true, StatusCode.OK, "添加成功");
     }
 
