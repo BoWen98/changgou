@@ -8,6 +8,9 @@ import java.util.Map;
 
 public interface SpecService {
 
+
+    List<Spec> findByCategory(Integer categoryId);
+
     /***
      * 查询所有
      * @return

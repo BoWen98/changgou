@@ -8,6 +8,9 @@ import java.util.Map;
 
 public interface ParaService {
 
+
+    List<Para> findByCategory(Integer categoryId);
+
     /***
      * 查询所有
      * @return
@@ -16,6 +19,7 @@ public interface ParaService {
 
     /**
      * 根据ID查询
+     *
      * @param id
      * @return
      */
@@ -62,8 +66,6 @@ public interface ParaService {
      * @return
      */
     Page<Para> findPage(Map<String, Object> searchMap, int page, int size);
-
-
 
 
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/spec")
@@ -20,14 +21,24 @@ public class SpecController {
     @Autowired
     private SpecService specService;
 
+    /*
+     *根据模板ID查询
+     */
+    @GetMapping("/category/{id}")
+    public Result<List<Spec>> findByCategory(@PathVariable("id") Integer categoryId) {
+        return new Result(true, StatusCode.OK, "查规格集合成功", specService.findByCategory(categoryId));
+    }
+
+
     /**
      * 查询全部数据
+     *
      * @return
      */
     @GetMapping
-    public Result findAll(){
+    public Result findAll() {
         List<Spec> specList = specService.findAll();
-        return new Result(true, StatusCode.OK,"查询成功",specList) ;
+        return new Result(true, StatusCode.OK, "查询成功", specList);
     }
 
     /***
@@ -36,9 +47,9 @@ public class SpecController {
      * @return
      */
     @GetMapping("/{id}")
-    public Result findById(@PathVariable Integer id){
+    public Result findById(@PathVariable Integer id) {
         Spec spec = specService.findById(id);
-        return new Result(true,StatusCode.OK,"查询成功",spec);
+        return new Result(true, StatusCode.OK, "查询成功", spec);
     }
 
 
@@ -48,9 +59,9 @@ public class SpecController {
      * @return
      */
     @PostMapping
-    public Result add(@RequestBody Spec spec){
+    public Result add(@RequestBody Spec spec) {
         specService.add(spec);
-        return new Result(true,StatusCode.OK,"添加成功");
+        return new Result(true, StatusCode.OK, "添加成功");
     }
 
 
@@ -60,11 +71,11 @@ public class SpecController {
      * @param id
      * @return
      */
-    @PutMapping(value="/{id}")
-    public Result update(@RequestBody Spec spec,@PathVariable Integer id){
+    @PutMapping(value = "/{id}")
+    public Result update(@RequestBody Spec spec, @PathVariable Integer id) {
         spec.setId(id);
         specService.update(spec);
-        return new Result(true,StatusCode.OK,"修改成功");
+        return new Result(true, StatusCode.OK, "修改成功");
     }
 
 
@@ -73,10 +84,10 @@ public class SpecController {
      * @param id
      * @return
      */
-    @DeleteMapping(value = "/{id}" )
-    public Result delete(@PathVariable Integer id){
+    @DeleteMapping(value = "/{id}")
+    public Result delete(@PathVariable Integer id) {
         specService.delete(id);
-        return new Result(true,StatusCode.OK,"删除成功");
+        return new Result(true, StatusCode.OK, "删除成功");
     }
 
     /***
@@ -84,10 +95,10 @@ public class SpecController {
      * @param searchMap
      * @return
      */
-    @GetMapping(value = "/search" )
-    public Result findList(@RequestParam Map searchMap){
+    @GetMapping(value = "/search")
+    public Result findList(@RequestParam Map searchMap) {
         List<Spec> list = specService.findList(searchMap);
-        return new Result(true,StatusCode.OK,"查询成功",list);
+        return new Result(true, StatusCode.OK, "查询成功", list);
     }
 
 
@@ -98,16 +109,16 @@ public class SpecController {
      * @param size
      * @return
      */
-    @GetMapping(value = "/search/{page}/{size}" )
-    public Result findPage(@RequestParam Map searchMap, @PathVariable  int page, @PathVariable  int size){
+    @GetMapping(value = "/search/{page}/{size}")
+    public Result findPage(@RequestParam Map searchMap, @PathVariable int page, @PathVariable int size) {
         Page<Spec> pageList = specService.findPage(searchMap, page, size);
-        PageResult pageResult=new PageResult(pageList.getTotal(),pageList.getResult());
-        return new Result(true,StatusCode.OK,"查询成功",pageResult);
+        PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
+        return new Result(true, StatusCode.OK, "查询成功", pageResult);
     }
 
     @GetMapping("/category/{categoryName}")
-    public Result<List<Map>> findSpecListByCategoryName(@PathVariable("categoryName") String categoryName){
+    public Result<List<Map>> findSpecListByCategoryName(@PathVariable("categoryName") String categoryName) {
         List<Map> specList = specService.findSpecListByCategoryName(categoryName);
-        return new Result<>(true,StatusCode.OK,"查询成功",specList);
+        return new Result<>(true, StatusCode.OK, "查询成功", specList);
     }
 }
