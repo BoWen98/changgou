@@ -12,6 +12,9 @@
         <module name="changgou_common_db" />
         <module name="code-template" />
         <module name="changgou_eureka" />
+        <module name="changgou_service_search_api" />
+        <module name="changgou_service_canal" />
+        <module name="changgou_service_search" />
         <module name="changgou_service_goods" />
       </profile>
     </annotationProcessing>
@@ -23,9 +26,12 @@
       <module name="changgou_parent" target="1.8" />
       <module name="changgou_service" target="1.8" />
       <module name="changgou_service_api" target="1.8" />
+      <module name="changgou_service_canal" target="1.8" />
       <module name="changgou_service_file" target="1.8" />
       <module name="changgou_service_goods" target="1.8" />
       <module name="changgou_service_goods_api" target="1.8" />
+      <module name="changgou_service_search" target="1.8" />
+      <module name="changgou_service_search_api" target="1.8" />
       <module name="changgou_web" target="1.8" />
       <module name="code-template" target="1.5" />
     </bytecodeTargetLevel>
@@ -37,9 +43,12 @@
       <module name="changgou_eureka" options="-parameters" />
       <module name="changgou_gatewa" options="-parameters" />
       <module name="changgou_parent" options="-parameters" />
+      <module name="changgou_service_canal" options="-parameters" />
       <module name="changgou_service_file" options="-parameters" />
       <module name="changgou_service_goods" options="-parameters" />
       <module name="changgou_service_goods_api" options="-parameters" />
+      <module name="changgou_service_search" options="-parameters" />
+      <module name="changgou_service_search_api" options="-parameters" />
     </option>
   </component>
 </project>
